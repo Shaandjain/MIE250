@@ -32,54 +32,44 @@ public class asst1_jainsh23 {
     }
 
     // Method to display the welcome message
-    private static void displayWelcomeMessage() { //private since it is only used in this class
+    private static void displayWelcomeMessage() { // private since it is only used in this class
         System.out.println("WELCOME TO THE SPRING WEIGHT CALCULATOR (0 TO QUIT, 1 TO PROCEED)");
     }
 
     // Method to perform the calculation
     private static void performCalculation(Scanner scanner) {
-        //set the bounds for the inputs
-        double D = getValidInput(scanner, "Enter coil diameter D (m): ", 0.25, 1.3, Double.class); 
-        double d = getValidInput(scanner, "Enter wire diameter d (m): ", 0.05, 2.0, Double.class);
-        int N = getValidInput(scanner, "Enter number of turns N: ", 1, 15, Integer.class);
+        // Set the bounds for the inputs
+        double D = getValidInput(scanner, "Enter coil diameter D (m): ", 0.25, 1.3, false);
+        double d = getValidInput(scanner, "Enter wire diameter d (m): ", 0.05, 2.0, false);
+        int N = (int) getValidInput(scanner, "Enter number of turns N: ", 1, 15, true);
 
         double weight = calculateSpringWeight(D, d, N); // Calculate the spring weight
-        double truncatedWeight = Math.floor(weight * 100) / 100.0;
+        double truncatedWeight = Math.floor(weight * 100) / 100.0; // Truncate the weight to 2 decimal places
         System.out.printf("Weight: %.2f kgm/s^2%n", truncatedWeight);
     }
 
-    // Generalized method to get valid input within specified bounds
-    public static <T extends Number> T getValidInput(Scanner scanner, String prompt, double minValue, double maxValue, Class<T> type) {
+    // Method to get valid input within specified bounds (handles both integers and doubles)
+    public static double getValidInput(Scanner scanner, String prompt, double minValue, double maxValue, boolean isInteger) {
         while (true) {
             System.out.print(prompt);
             String input = scanner.nextLine();
             try {
-                if (type == Double.class) {
-                    double value = Double.parseDouble(input);
-                    if (value <= 0) {
-                        System.out.println("ENTER A POSITIVE INPUT");
-                    } else if (value >= minValue && value <= maxValue) {
-                        return type.cast(value); // Return the valid input
-                    } else {
-                        System.out.println("INPUT MUST BE WITHIN BOUNDS");
-                    }
-                } else if (type == Integer.class) {
-                    double tempValue = Double.parseDouble(input); // Parse as double to check for decimals
-                    if (tempValue <= 0) {
+                double value = Double.parseDouble(input);
+                if (value <= 0) {
+                    if (isInteger) {
                         System.out.println("N SHOULD BE A POSITIVE INTEGER");
-                    } else if (tempValue != Math.floor(tempValue)) {
-                        System.out.println("N SHOULD BE AN INTEGER");
                     } else {
-                        int value = (int) tempValue;
-                        if (value >= (int) minValue && value <= (int) maxValue) {
-                            return type.cast(value); // Return the valid input
-                        } else {
-                            System.out.println("INPUT MUST BE WITHIN BOUNDS");
-                        }
+                        System.out.println("ENTER A POSITIVE INPUT");
                     }
+                } else if (value < minValue || value > maxValue) {
+                    System.out.println("INPUT MUST BE WITHIN BOUNDS");
+                } else if (isInteger && value != Math.floor(value)) {
+                    System.out.println("N SHOULD BE AN INTEGER");
+                } else {
+                    return value; // Return the valid input
                 }
             } catch (NumberFormatException e) {
-                if (type == Integer.class) {
+                if (isInteger) {
                     System.out.println("N SHOULD BE AN INTEGER");
                 } else {
                     System.out.println("ENTER A VALID INPUT");
