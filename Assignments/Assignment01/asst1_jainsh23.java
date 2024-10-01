@@ -32,7 +32,7 @@ public class asst1_jainsh23 {
     }
 
     // Method to display the welcome message
-    private static void displayWelcomeMessage() {
+    private static void displayWelcomeMessage() { //private since it is only used in this class
         System.out.println("WELCOME TO THE SPRING WEIGHT CALCULATOR (0 TO QUIT, 1 TO PROCEED)");
     }
 
@@ -44,7 +44,8 @@ public class asst1_jainsh23 {
         int N = getValidInput(scanner, "Enter number of turns N: ", 1, 15, Integer.class);
 
         double weight = calculateSpringWeight(D, d, N); // Calculate the spring weight
-        System.out.printf("Weight: %.2f kgm/s^2%n", weight);
+        double truncatedWeight = Math.floor(weight * 100) / 100.0;
+        System.out.printf("Weight: %.2f kgm/s^2%n", truncatedWeight);
     }
 
     // Generalized method to get valid input within specified bounds
