@@ -1,0 +1,50 @@
+Here are the following parts I was assisted with using Chat GPT/ Copilot:
+
+//Prompt
+Please write Java code that uses the getValidInput method to prompt the user for input and assign the values to variables D, d, and N. The getValidInput method should ensure that the input values are within the specified minimum and maximum boundaries:
+
+For D (coil diameter):
+Prompt: "Enter coil diameter D (m): "
+Minimum value: 0.25
+Maximum value: 1.3
+Input type: non-integer (double)
+For d (wire diameter):
+Prompt: "Enter wire diameter d (m): "
+Minimum value: 0.05
+Maximum value: 2.0
+Input type: non-integer (double)
+For N (number of turns):
+Prompt: "Enter number of turns N: "
+Minimum value: 1
+Maximum value: 15
+Input type: integer
+
+
+//Return
+
+double D = getValidInput(scanner, "Enter coil diameter D (m): ", 0.25, 1.3, false);
+double d = getValidInput(scanner, "Enter wire diameter d (m): ", 0.05, 2.0, false);
+int N = (int) getValidInput(scanner, "Enter number of turns N: ", 1, 15, true);
+
+
+//Prompt
+
+Please write Java code that truncates the weight variable to two decimal places without rounding. 
+
+//Return
+
+double truncatedWeight = Math.floor(weight * 100) / 100.0; // Truncate the weight to 2 decimal places
+System.out.printf("Weight: %.2f kgm/s^2%n", truncatedWeight);
+
+
+//Prompt
+Please write a Java method named calculateSpringWeight that calculates the weight of a spring. The method should
+calculate the mass using the formula: mass = (N + 2) * D * Math.pow(d, 2), and find the weight by multiplying by the 
+constant of gravity.
+
+//Return
+// Method to calculate spring weight
+public static double calculateSpringWeight(double D, double d, int N) {
+    double mass = (N + 2) * D * Math.pow(d, 2);
+    return mass * GRAVITY; // Return the weight (display result in kgm/s^2)
+}
