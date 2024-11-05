@@ -18,7 +18,7 @@ class QuadraticFunction extends ObjectiveFunction {
     double compute(double[] variables) {
         double sum = 0;
         for (double v : variables) {
-            sum += v * v;
+            sum += v * v; //sum of squares, where v is the variable
         }
         return sum;
     }
@@ -34,12 +34,12 @@ class QuadraticFunction extends ObjectiveFunction {
 
     @Override
     double[] getBounds() {
-        return new double[] { -5.0, 5.0 };
+        return new double[] { -5.0, 5.0 }; //return bounds of the function
     }
 
     @Override
     String getName() {
-        return "Quadratic";
+        return "Quadratic"; //get name of the function
     }
 }
 
@@ -48,7 +48,7 @@ class RosenbrockFunction extends ObjectiveFunction {
     double compute(double[] variables) {
         double sum = 0;
         for (int i = 0; i < variables.length - 1; i++) {
-            sum += 100 * Math.pow(variables[i + 1] - variables[i] * variables[i], 2)
+            sum += 100 * Math.pow(variables[i + 1] - variables[i] * variables[i], 2) //rosenbrock function formula
                     + Math.pow(1 - variables[i], 2);
         }
         return sum;
