@@ -1,5 +1,3 @@
-package Assignments.Assignment02;
-
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -62,7 +60,7 @@ class RosenbrockFunction extends ObjectiveFunction {
     @Override
     double[] computeGradient(double[] variables) {
         double[] gradient = new double[variables.length];
-        // Gradient for the 2D case (as per your original implementation)
+        // Gradient for the 2D case 
         for (int i = 0; i < variables.length; i++) {
             gradient[i] = 0;
         }
@@ -132,7 +130,7 @@ class RosenbrockBonusFunction extends ObjectiveFunction {
     }
 }
 
-public class SteepestDescentOptimizer {
+public class asst2_jainsh23 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -379,7 +377,7 @@ public class SteepestDescentOptimizer {
             iteration++; // Increment iteration at the end
         }
 
-        // Return the number of iterations actually performed
+        // Return the number of iterations actually performed (converged or maxIterations)
         if (converged) {
             return iteration;
         } else {
@@ -395,7 +393,7 @@ public class SteepestDescentOptimizer {
         return Math.sqrt(sum);
     }
 
-    // Flooring to exactly 5 decimal places using BigDecimal
+    // Flooring to exactly 5 decimal places using BigDecimal -- from announcement
     private static double floorTo5Decimals(double value) {
         BigDecimal bd = new BigDecimal(value).setScale(5, RoundingMode.DOWN);
         return bd.doubleValue();
