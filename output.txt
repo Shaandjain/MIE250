@@ -3,24 +3,8 @@ Output file: output.txt
 Execution mode: parallel
 
 Matrix A:
-1.0000 1.0000 1.0000 
+2.0000 4.0000 6.0000 
 1.0000 2.0000 3.0000 
-5.0000 6.0000 4.0000 
+3.0000 6.0000 9.0000 
 
-Final Matrix L:
-1.0000 0.0000 0.0000 
-1.0000 1.0000 0.0000 
-5.0000 1.0000 1.0000 
-
-Final Matrix U:
-1.0000 1.0000 1.0000 
-0.0000 1.0000 2.0000 
-0.0000 0.0000 -3.0000 
-
-Difference Matrix (A - LU):
-0.0000 0.0000 0.0000 
-0.0000 0.0000 0.0000 
-0.0000 0.0000 0.0000 
-
-Tolerance (difference between A and LU): 0.0000
-Decomposition complete. Results written to output.txt
+Error: Matrix is singular, cannot perform decomposition.
