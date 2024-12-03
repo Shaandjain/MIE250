@@ -1,5 +1,5 @@
 No input file specified. Using default: input.txt
-Input file: /Users/shaanjain/Downloads/Indy24-25/MIE250/Assignments/Assignment03/input.txt
+Input file: Assignments/Assignment03/input.txt
 Output file: output.txt
 Execution mode: parallel
 
