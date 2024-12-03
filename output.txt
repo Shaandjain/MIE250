@@ -1,10 +1,27 @@
-Input file: Assignments/Assignment03/input.txt
+No input file specified. Using default: input.txt
+Input file: /Users/shaanjain/Downloads/Indy24-25/MIE250/Assignments/Assignment03/input.txt
 Output file: output.txt
 Execution mode: parallel
 
 Matrix A:
-2.0000 4.0000 6.0000 
+1.0000 1.0000 1.0000 
 1.0000 2.0000 3.0000 
-3.0000 6.0000 9.0000 
+5.0000 6.0000 4.0000 
 
-Error: Matrix is singular, cannot perform decomposition.
+Final Matrix L:
+1.0000 0.0000 0.0000 
+1.0000 1.0000 0.0000 
+5.0000 1.0000 1.0000 
+
+Final Matrix U:
+1.0000 1.0000 1.0000 
+0.0000 1.0000 2.0000 
+0.0000 0.0000 -3.0000 
+
+Difference Matrix (A - LU):
+0.0000 0.0000 0.0000 
+0.0000 0.0000 0.0000 
+0.0000 0.0000 0.0000 
+
+Tolerance (difference between A and LU): 0.0000
+Decomposition complete. Results written to output.txt

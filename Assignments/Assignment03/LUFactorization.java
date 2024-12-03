@@ -17,7 +17,7 @@ public class LUFactorization {
         } else {
             noInputFileSpecified = true;
         }
-        // Resolve input and output file paths
+        // input and output file paths
         File inputFile = new File(inputFileName);
         File outputFile = new File(outputFileName);
         // Read execution mode from config.txt
@@ -156,5 +156,8 @@ public class LUFactorization {
             matrixData[i] = data.get(i);
         }
         return new Matrix(matrixData);
+    }
+    private static Matrix readMatrix(File file) throws IOException {
+        return readMatrix(file.getPath()); // Call the existing readMatrix(String) method
     }
 }
